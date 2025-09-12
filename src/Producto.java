@@ -1,6 +1,6 @@
 
 public class Producto {
-    
+
     private String categoria;
     private String nombre;
     private double precio;
@@ -37,7 +37,5 @@ public class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
-    
-    
+
 }

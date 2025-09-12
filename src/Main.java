@@ -1,21 +1,10 @@
-
-import java.util.ArrayList;
-
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author Jeremias
+ * @author Grupo 11
  */
 public class Main {
-    //
-    
+
     public static void main(String[] args) {
-        
-        
+
         /*
         Productos p11 = new Productos ("electronica", "Heladera" , 750);
         Productos p12 = new Productos ("electronica", "Lavarropas" , 999);
@@ -28,10 +17,7 @@ public class Main {
         Productos p31 = new Productos ("ropa", "Remera" , 99);
         Productos p32 = new Productos ("ropa", "Pantalon" , 150);
         Productos p33 = new Productos ("ropa", "Medias" , 10);
-        */
-        
-        
-        
+         */
     }
-    
+
 }

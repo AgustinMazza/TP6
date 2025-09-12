@@ -1,3 +1,5 @@
+package TP6E1;
+
 /*
  * @author Grupo 11
  */

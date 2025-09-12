@@ -1,0 +1,30 @@
+# === NetBeans (permitir abrir proyecto, evitar conflictos) === 
+nbproject/private/ 
+nbproject/project.properties 
+nbproject/build-impl.xml 
+# === Compilados de Java === 
+*.class 
+# === Carpetas de salida === 
+build/ 
+dist/ 
+out/ 
+target/ 
+# === Librerías externas === 
+# Permitimos libs/ para que se compartan los .jar 
+# !libs/ 
+ 
+# === Archivos temporales === 
+*.log 
+*.bak 
+*.tmp 
+*.swp 
+*~ 
+ 
+# === Configuración de otros IDEs === 
+*.iml 
+.idea/ 
+.vscode/ 
+ 
+# === Archivos del sistema operativo === 
+.DS_Store 
+Thumbs.db 

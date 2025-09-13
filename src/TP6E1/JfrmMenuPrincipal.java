@@ -12,11 +12,13 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
 
     private DefaultTableModel tablaProductos = new DefaultTableModel();
     public static ArrayList<Producto> listaDeProductos = new ArrayList<>();
+    
+
 
     private void armarTabla() {
         tablaProductos.addColumn("Nombre");
         tablaProductos.addColumn("Categoria");
-        tablaProductos.addColumn("Producto");
+        tablaProductos.addColumn("Precio");
         Tabla.setModel(tablaProductos);
     }
 
@@ -217,7 +219,7 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
-        if (!IngresarNombre.getText().isEmpty() && !IngresarPrecio.getText().isEmpty() && ComboCategoria.getSelectedItem() != null) {
+        /*if (!IngresarNombre.getText().isEmpty() && !IngresarPrecio.getText().isEmpty() && ComboCategoria.getSelectedItem() != null) {
 
             Producto P1 = new Producto(ComboCategoria.getSelectedItem().toString(), IngresarNombre.getText(), Double.parseDouble(IngresarPrecio.getText()));
             listaDeProductos.add(P1);
@@ -230,7 +232,25 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
             agregarProductos();
         } else {
             JOptionPane.showMessageDialog(this, "No puede ingresar datos vacios", "Error", JOptionPane.ERROR_MESSAGE);
+        }*/
+        
+        if (!IngresarNombre.getText().isEmpty() && !IngresarPrecio.getText().isEmpty() && ComboCategoria.getSelectedItem() != null) {
+
+            Producto P1 = new Producto(ComboCategoria.getSelectedItem().toString(), IngresarNombre.getText(), Double.parseDouble(IngresarPrecio.getText()));
+            tablaProductos.addRow(new Object[]{IngresarNombre.getText(),ComboCategoria.getSelectedItem().toString(), IngresarPrecio.getText() });
+            JOptionPane.showMessageDialog(this, "Se agrego correctamente al cliente: " + P1.getNombre() + " en la lista", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+
+            ComboCategoria.setSelectedItem(-1);
+            IngresarNombre.setText("");
+            IngresarPrecio.setText("");
+
+            agregarProductos();
+        } else {
+            JOptionPane.showMessageDialog(this, "No puede ingresar datos vacios", "Error", JOptionPane.ERROR_MESSAGE);
         }
+     
+        
+        
 
     }//GEN-LAST:event_BotonAgregarActionPerformed
 
@@ -282,7 +302,7 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
         for (int i = 0; i < JfrmMenuPrincipal.listaDeProductos.size(); i++) {
             listaDeProductos.add(JfrmMenuPrincipal.listaDeProductos.get(i));
 
-            System.out.println("Prueba");
+            System.out.println("Prueba" + i);
 
         }
     }

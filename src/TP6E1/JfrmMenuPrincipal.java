@@ -1,6 +1,5 @@
 package TP6E1;
 
-
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -12,8 +11,6 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
 
     private DefaultTableModel tablaProductos = new DefaultTableModel();
     public static ArrayList<Producto> listaDeProductos = new ArrayList<>();
-    
-
 
     private void armarTabla() {
         tablaProductos.addColumn("Nombre");
@@ -21,15 +18,11 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
         tablaProductos.addColumn("Precio");
         Tabla.setModel(tablaProductos);
     }
-
-    /**
-     * Creates new form JjrmMenuPrincipal
-     */
+    
     public JfrmMenuPrincipal() {
         initComponents();
         armarTabla();
         agregarProductos();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -50,6 +43,7 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -68,6 +62,7 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
 
         BotonAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         BotonAgregar.setForeground(new java.awt.Color(0, 0, 0));
+        BotonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-carrito-de-compras-48.png"))); // NOI18N
         BotonAgregar.setText("Agregar");
         BotonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,9 +114,9 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
                             .addComponent(IngresarNombre)
                             .addComponent(ComboCategoria, 0, 163, Short.MAX_VALUE)
                             .addComponent(IngresarPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,9 +167,12 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Tabla);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-producto-50.png"))); // NOI18N
+
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -184,6 +182,8 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(150, 150, 150))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
@@ -195,9 +195,14 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,39 +224,21 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarActionPerformed
-        /*if (!IngresarNombre.getText().isEmpty() && !IngresarPrecio.getText().isEmpty() && ComboCategoria.getSelectedItem() != null) {
-
-            Producto P1 = new Producto(ComboCategoria.getSelectedItem().toString(), IngresarNombre.getText(), Double.parseDouble(IngresarPrecio.getText()));
-            listaDeProductos.add(P1);
-            JOptionPane.showMessageDialog(this, "Se agrego correctamente al cliente: " + P1.getNombre() + " en la lista", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-
-            ComboCategoria.setSelectedItem(-1);
-            IngresarNombre.setText("");
-            IngresarPrecio.setText("");
-
-            agregarProductos();
-        } else {
-            JOptionPane.showMessageDialog(this, "No puede ingresar datos vacios", "Error", JOptionPane.ERROR_MESSAGE);
-        }*/
-        
         if (!IngresarNombre.getText().isEmpty() && !IngresarPrecio.getText().isEmpty() && ComboCategoria.getSelectedItem() != null) {
-
-            Producto P1 = new Producto(ComboCategoria.getSelectedItem().toString(), IngresarNombre.getText(), Double.parseDouble(IngresarPrecio.getText()));
-            tablaProductos.addRow(new Object[]{IngresarNombre.getText(),ComboCategoria.getSelectedItem().toString(), IngresarPrecio.getText() });
-            JOptionPane.showMessageDialog(this, "Se agrego correctamente al cliente: " + P1.getNombre() + " en la lista", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-
-            ComboCategoria.setSelectedItem(-1);
-            IngresarNombre.setText("");
-            IngresarPrecio.setText("");
-
-            agregarProductos();
+            if (!IngresarNombre.getText().matches("[a-zA-Z]+") || !IngresarPrecio.getText().matches("\\d+")) {
+                JOptionPane.showMessageDialog(this, "No se agrego el producto. Ingrese correctamente los datos.", "Mensaje", JOptionPane.ERROR_MESSAGE);
+            } else {
+                Producto P1 = new Producto(ComboCategoria.getSelectedItem().toString(), IngresarNombre.getText(), Double.parseDouble(IngresarPrecio.getText()));
+                tablaProductos.addRow(new Object[]{IngresarNombre.getText(), ComboCategoria.getSelectedItem().toString(), IngresarPrecio.getText()});
+                JOptionPane.showMessageDialog(this, "Se agregó correctamente al producto: " + P1.getNombre() + " en la lista", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                ComboCategoria.setSelectedItem(-1);
+                IngresarNombre.setText("");
+                IngresarPrecio.setText("");
+                agregarProductos();
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "No puede ingresar datos vacios", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se ingresó correctamente el producto.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-     
-        
-        
-
     }//GEN-LAST:event_BotonAgregarActionPerformed
 
     private void IngresarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarNombreActionPerformed
@@ -295,15 +282,12 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
                 new JfrmMenuPrincipal().setVisible(true);
             }
         });
-
     }
 
     public void agregarProductos() {
         for (int i = 0; i < JfrmMenuPrincipal.listaDeProductos.size(); i++) {
             listaDeProductos.add(JfrmMenuPrincipal.listaDeProductos.get(i));
-
             System.out.println("Prueba" + i);
-
         }
     }
 
@@ -315,6 +299,7 @@ public class JfrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable Tabla;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
